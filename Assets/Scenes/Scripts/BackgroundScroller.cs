@@ -7,7 +7,10 @@ public class BackgroundScroller : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector2.left * scrollSpeed * Time.deltaTime);
+        float currentSpeed = scrollSpeed * GameManager.Instance.GameSpeedMultiplier;
+
+        transform.Translate(Vector2.left * currentSpeed * Time.deltaTime);
+
         if (transform.position.x <= -backgroundWidth)
         {
             RepositionBackground();
